@@ -9,7 +9,7 @@ public class accountCreatedTaskCreated {
               // Create a new task sObject 
           tasks.add(new Task (Subject = 'Negotiations with '+acc.Name, WhatId = acc.Id));   
           }
-		// Insert the task by using DML-operation
+		// Insert the task by using DML-operations
 		insert tasks;
   }
 }

@@ -6,7 +6,7 @@ public class accountUpdatedTasksAssign {
           List<Task> tasks = [SELECT OwnerId
 								FROM Task
 								WHERE WhatId IN :ids];
-								ID ownID = tasks[0].OwnerId;
+		//ID ownID = tasks[0].OwnerId;
           // Assign all the retrieved tasks to OUR USER
           if (tasks.size()>3){        
           // Create the user sObject list 

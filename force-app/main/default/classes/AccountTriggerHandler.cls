@@ -56,7 +56,10 @@ public class AccountTriggerHandler {
 	} 
 
 	public static void handleAfterDelete(List<Account> oldList, Map<Id, Account> oldMap){
-	
+	String CRON_EXP = '0 20 * * * ? ';
+    String jobId = System.schedule('BatchScheduler',
+            CRON_EXP,
+            new BatchScheduler());
 	} 
 
 	public static void handleAfterUndelete(List<Account> newList, Map<Id, Account> newMap){

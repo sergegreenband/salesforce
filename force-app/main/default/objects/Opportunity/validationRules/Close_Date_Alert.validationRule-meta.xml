@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Date_Alert</fullName>
+    <active>true</active>
+    <description>IsClosed is not selected
+CloseDate is before today</description>
+    <errorConditionFormula>AND( CloseDate &lt;  TODAY() , NOT(IsClosed) )</errorConditionFormula>
+    <errorMessage>The close date must be today or later</errorMessage>
+</ValidationRule>

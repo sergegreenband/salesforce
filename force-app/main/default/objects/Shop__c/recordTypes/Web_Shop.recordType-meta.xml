@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Web_Shop</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>New_Shop_Compact_Layout</compactLayoutAssignment>
+    <description>Web Shop Record Type</description>
+    <label>Web Shop</label>
+    <picklistValues>
+        <picklist>Payment_Methods__c</picklist>
+        <values>
+            <fullName>APAC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LATAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shop_size__c</picklist>
+        <values>
+            <fullName>average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>enormous</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>extremely large</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>large</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>small</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>tiny</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

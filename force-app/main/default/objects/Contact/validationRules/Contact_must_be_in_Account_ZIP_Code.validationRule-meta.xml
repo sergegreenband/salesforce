@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_must_be_in_Account_ZIP_Code</fullName>
+    <active>false</active>
+    <description>prevents a user from creating or updating a contact if two conditions are both true</description>
+    <errorConditionFormula>AND(
+ NOT(ISBLANK(AccountId ))  ,
+ MailingPostalCode  &lt;&gt; Account.ShippingPostalCode  )</errorConditionFormula>
+    <errorMessage>The contact MUST BE associated with an account id.
+The contact mailing zip code MUST BE different than the account shipping zip code.</errorMessage>
+</ValidationRule>

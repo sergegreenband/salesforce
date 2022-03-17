@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shop_size__c</fullName>
+    <description>Shop size</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shop size</inlineHelpText>
+    <label>Shop size</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>tiny</fullName>
+                <default>true</default>
+                <label>tiny</label>
+            </value>
+            <value>
+                <fullName>small</fullName>
+                <default>false</default>
+                <label>small</label>
+            </value>
+            <value>
+                <fullName>average</fullName>
+                <default>false</default>
+                <label>average</label>
+            </value>
+            <value>
+                <fullName>large</fullName>
+                <default>false</default>
+                <label>large</label>
+            </value>
+            <value>
+                <fullName>extremely large</fullName>
+                <default>false</default>
+                <label>extremely large</label>
+            </value>
+            <value>
+                <fullName>enormous</fullName>
+                <default>false</default>
+                <label>enormous</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

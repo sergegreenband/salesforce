@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contribution_Level__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+   Contribution_Percentage__c&lt;=0.10, &quot;Low&quot;,  
+   IF(
+     Contribution_Percentage__c&gt;0.10 &amp;&amp; Contribution_Percentage__c&lt;=0.40, &quot;Medium&quot;,  &quot;High&quot; ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contribution Level</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

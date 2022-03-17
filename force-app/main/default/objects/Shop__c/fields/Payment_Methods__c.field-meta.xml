@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Methods__c</fullName>
+    <description>Payment Methods</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Payment Methods</inlineHelpText>
+    <label>Payment Methods</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Region</valueSetName>
+    </valueSet>
+</CustomField>

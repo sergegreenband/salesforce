@@ -1,0 +1,109 @@
+<template>
+    <lightning-card title="To-do List" icon-name="utility:list">
+        <div class="slds-card__body_inner">
+            <!-- Start bear list -->
+            <template if:true={todos.data}>
+                <div class="divTable">
+                    <div class="divTableBody">
+                    <div class="divTableRow">
+                    <div class="divTableCell"><lightning-input type="search"
+                        onchange={handleSearchTermChange}
+                        variant="label-hidden"
+                        class="slds-var-m-bottom_small"
+                        label="Search"
+                        placeholder="Search by TITLE"
+                        value={searchTerm}>
+                        </lightning-input></div>
+                    <div class="divTableCell"><lightning-input type="search"
+                        onchange={handleSearchTermChangeDesc}
+                        variant="label-hidden"
+                        class="slds-var-m-bottom_small"
+                        label="Search"
+                        placeholder="Search by DESCRIPTION"
+                        value={searchTermDesc}>
+                        </lightning-input></div>
+                    </div>
+                    </div>
+                    </div>
+                <lightning-layout multiple-rows="true" pull-to-boundary="small">
+                    <template for:each={todos.data} for:item="todo">
+                        <lightning-layout-item key={todo.Id} size="3" class="slds-var-p-around_x-small">
+                            <!-- Start todo tile -->
+                            <c-todo-tile todo={todo} ontodoview={handleTodoView} ondeleted={handleDelete} onupdated={handleUpdate}></c-todo-tile>
+                            <!-- End todo tile -->
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+                <!-- No todo's found -->
+    <template if:false={hasResults}>
+        <div class="slds-align_absolute-center slds-var-m-vertical_small">
+            This is beary disturbing, we did not find results...
+        </div>
+    </template>
+            </template>
+            <!-- End todo list -->
+            <!-- Data failed to load -->
+            <template if:true={todos.error}>
+                <div class="slds-text-color_error">
+                    An error occurred while loading the todo's list
+                </div>
+            </template>
+        </div>
+        <br />
+    <div class="divTable">
+        <div class="divTableBody">
+        <div class="divTableRow">
+        <div class="divTableCell">
+            <lightning-button
+            label="Create"
+            onclick={handleShowModal}
+        ></lightning-button></div>
+        <div class="divTableCell">
+            <lightning-combobox
+            label="Filter by category"
+            value={varCat}
+            onchange={varCatChange}
+            options={varCatOptions}
+        ></lightning-combobox>
+        <br />
+        <lightning-button
+        label="Clear all filters"
+        onclick={handleClearFilter}
+    ></lightning-button></div>
+        <div class="divTableCell">
+            <lightning-combobox
+            label="Filter by priority"
+            value={varPrior}
+            onchange={varPriorChange}
+            options={varPriorOptions}
+        ></lightning-combobox></div>
+        <div class="divTableCell">
+            <lightning-combobox
+            label="Filter by status"
+            value={varStat}
+            onchange={varStatChange}
+            options={varStatOptions}
+        ></lightning-combobox></div>
+        </div>
+        </div>
+        </div>
+            <c-modal header={header}>
+                    <lightning-card>
+                        <lightning-record-form
+                            object-api-name={objectApiName}
+                            fields={fields}
+                            onsuccess={handleSuccess}>
+                        </lightning-record-form>
+                    </lightning-card>
+                
+                <div slot="footer">
+                    <lightning-button
+                        label="OK"
+                        variant="neutral"
+                        onclick={handleCancelModal}
+                    ></lightning-button>
+                    
+                </div>
+            </c-modal>
+    </lightning-card>
+    </template>

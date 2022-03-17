@@ -135,7 +135,7 @@ handleCancelModal() {
         { label: 'Today', value: 'Today' },
         { label: 'Tomorrow', value: 'Tomorrow' },
         { label: 'Later', value: 'Later' }, 
-        { label: 'All', value: '' },      
+        { label: 'All', value: '' }    
     ];
 
     varPrior = '';
@@ -143,14 +143,15 @@ handleCancelModal() {
         { label: 'low', value: 'low' },
         { label: 'medium', value: 'medium' },
         { label: 'high', value: 'high' }, 
-        { label: 'All', value: '' },      
+        { label: 'All', value: '' }      
     ];
 
     varStat = '';
     varStatOptions = [
         { label: 'draft', value: 'draft' },
         { label: 'in progress', value: 'in progress' },
-        { label: 'All', value: '' },      
+        { label: 'done', value: 'done' },
+        { label: 'All', value: '' }      
     ];
     varCatChange(event) {
       const varCat = event.target.value;

@@ -54,8 +54,9 @@
         <div class="divTableBody">
         <div class="divTableRow">
         <div class="divTableCell">
-            <lightning-button
+            <lightning-button slds-button slds-button_brand 
             label="Create"
+            variant="brand"
             onclick={handleShowModal}
         ></lightning-button></div>
         <div class="divTableCell">
@@ -99,7 +100,7 @@
                 <div slot="footer">
                     <lightning-button
                         label="OK"
-                        variant="neutral"
+                        variant="brand"
                         onclick={handleCancelModal}
                     ></lightning-button>
                     

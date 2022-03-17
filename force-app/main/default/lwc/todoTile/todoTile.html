@@ -41,10 +41,7 @@
     object-api-name={objectApiName}
     record-id={todo.Id}
     onsuccess={handleSuccess}>
-><lightning-input-field
-field-name="Id"
-value={todo.Id}
-></lightning-input-field>
+
     <lightning-input-field field-name={name}> </lightning-input-field>
     <lightning-input-field field-name={description}> </lightning-input-field>
     <lightning-input-field field-name={category}> </lightning-input-field>
@@ -60,7 +57,7 @@ value={todo.Id}
         <div slot="footer">
             <lightning-button
                 label="OK"
-                variant="neutral"
+                variant="brand"
                 onclick={handleCancelModal}
             ></lightning-button>
             

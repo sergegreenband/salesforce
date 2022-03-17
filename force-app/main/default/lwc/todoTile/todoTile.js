@@ -1,10 +1,10 @@
 import { LightningElement, api, wire } from 'lwc';
 
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
-import { refreshApex } from '@salesforce/apex';
-import { deleteRecord } from 'lightning/uiRecordApi';
+//import { refreshApex } from '@salesforce/apex';
+//import { deleteRecord } from 'lightning/uiRecordApi';
 import getAllTodos from '@salesforce/apex/TodoController.getAllTodos';
-import { reduceErrors } from 'c/ldsUtils';
+//import { reduceErrors } from 'c/ldsUtils';
 
 import todoResources from '@salesforce/resourceUrl/todo_app';
 
@@ -31,21 +31,20 @@ export default class TodoTile extends LightningElement {
     @api todo;
     @wire(getRecord)todo;
     todos;
-    error;
-    wiredTodosResult;
     
-
-    @wire(getAllTodos)
-    wiredTodos(result) {
-        this.wiredTodosResult = result;
-        if (result.data) {
-            this.todos = result.data;
-            this.error = undefined;
-        } else if (result.error) {
-            this.error = result.error;
-            this.todos = undefined;
-        }
-    }
+    //error;
+    //wiredTodosResult;
+    // @wire(getAllTodos)
+    // wiredTodos(result) {
+    //     this.wiredTodosResult = result;
+    //     if (result.data) {
+    //         this.todos = result.data;
+    //         this.error = undefined;
+    //     } else if (result.error) {
+    //         this.error = result.error;
+    //         this.todos = undefined;
+    //     }
+    // }
 
 	appResources = {
 		todoSilhouette: `${todoResources}/todo_app/img/to-do-list.png`,

@@ -93,10 +93,10 @@ export default class TodoTile extends LightningElement {
     /*-------STYLING-------------------------------------------------------*/
     @api
     get categoryStyle() { 
-        return this.todo.Category__c == 'Today'? "slds-badge slds-theme_success":
+        return this.todo.Category__c == 'Today'? "slds-badge slds-theme_error":
         (this.todo.Category__c == 
             'Tomorrow'?"slds-badge slds-theme_warning":
-            "slds-badge"); 
+            "slds-badge slds-theme_success"); 
     }
 
     // @api

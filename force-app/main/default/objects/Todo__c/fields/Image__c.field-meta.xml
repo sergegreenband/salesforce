@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&quot;https://curious-narwhal-50iui7-dev-ed--c.documentforce.com/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Jpg&amp;versionId=0688Y00000GqD3g&amp;operationContext=CHATTER&amp;contentId=05T8Y00000xXjnc&quot;,&quot; alternate_text&quot;, 100, 100)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Image</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

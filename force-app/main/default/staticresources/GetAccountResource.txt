@@ -1,0 +1,12 @@
+{ "Account1" : {
+	"Id":"0017Q000008AobpQAC",
+	"Name":"SSSSSSS",
+	"Rating":"Hot"
+	},
+    
+"Account2" : {
+	"Id":"0017Q000008AjH2QAK",
+	"Name":"SUPERACC",
+	"Rating":"Warm"
+	}
+}

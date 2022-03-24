@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title={todo.Name} class="todo-tile">
+   
+  
+        <div slot="actions">
+            <lightning-button-icon slds-button slds-button_icon
+                icon-name="utility:search"
+                icon-class="todo-tile-button"
+                variant="bare"
+                alternative-text="Open this to-do details"
+                onclick={handleOpenRecordClick}>
+            </lightning-button-icon>
+            <lightning-button-icon slds-button slds-button_icon
+                icon-name="utility:edit"
+                icon-class="todo-tile-button"
+                variant="bare"
+                alternative-text="Edit this to-do"
+                onclick={handleShowModal}
+        ></lightning-button-icon>
+                <lightning-button-icon slds-button slds-button_icon
+                    icon-name="utility:delete"
+                    variant="bare"
+                    alternative-text="Delete this to-do"
+                    onclick={handleDeleteTodo}
+                    data-recordid={todo.Id}
+                ></lightning-button-icon>
+        </div>
+        <div class="slds-var-p-horizontal_small todo-tile-body">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <img src={appResources.todoSilhouette} alt="Todo profile" class="todo-silhouette"/>
+                </div>
+                
+                <div class="slds-media__body">
+                    
+                    <p class="slds-var-m-bottom_xx-small">Description: {todo.Description__c}</p>
+                    <p class="slds-var-m-bottom_xx-small">Created: {todo.CreatedDate}</p>
+                    <p class="slds-var-m-bottom_xx-small">Category: 
+                        <span class={categoryStyle}>{todo.Category__c}</span></p>
+                    <p class="slds-var-m-bottom_xx-small">Priority: {todo.Priority__c}</p>
+                    <p class="slds-var-m-bottom_xx-small">Status: {todo.Status__c}</p>
+                    
+                        <template for:each={subtodos} for:item="subtodo">
+                            <div key={subtodo.Id} class="slds-var-p-around_x-small">
+                                <!-- Start todo tile -->
+                                <c-sub-todo subtodo={subtodo}></c-sub-todo>
+                                <!-- End todo tile -->
+                            </div>
+                        </template>
+                    
+                    
+        <c-modal header={header}>
+            <lightning-card>
+                <lightning-record-edit-form
+    object-api-name={objectApiName}
+    record-id={todo.Id}
+    onsuccess={handleSuccess}>
+
+    <lightning-input-field field-name={name}> </lightning-input-field>
+    <lightning-input-field field-name={description}> </lightning-input-field>
+    <lightning-input-field field-name={category}> </lightning-input-field>
+    <lightning-input-field field-name={priority}> </lightning-input-field>
+    <lightning-input-field field-name={status}> </lightning-input-field>
+    <div class="slds-var-m-top_medium">
+        <lightning-button variant="brand" type="submit" label="Save">
+        </lightning-button>
+    </div>
+</lightning-record-edit-form>
+            </lightning-card>
+        
+        <div slot="footer">
+            <lightning-button
+                label="OK"
+                variant="brand"
+                onclick={handleCancelModal}
+            ></lightning-button>
+            
+        </div>
+    </c-modal>
+                </div>
+            </div>
+        </div>
+        
+
+       
+    </lightning-card>
+</template>

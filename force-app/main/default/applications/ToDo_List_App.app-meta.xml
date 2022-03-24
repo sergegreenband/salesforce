@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>todolist</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Try our brand-new application for easily making to-do lists</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>ToDo List App</label>
+    <navType>Standard</navType>
+    <tabs>todo_list_app_page</tabs>
+    <tabs>Todo__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>ToDo_List_App_UtilityBar</utilityBar>
+</CustomApplication>

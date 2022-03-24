@@ -1,0 +1,37 @@
+<aura:component >
+    <aura:attribute name="newItem" type="Camping_Item__c"
+                    default="{ 'sobjectType': 'Camping_Item__c',
+                             'Name': '',
+                             'Quantity__c': 0,
+                             'Price__c': 0,
+                             'Packed__c': false }"/>
+        <aura:registerEvent name="addItem" type="c:addItemEvent"/>
+	<!-- CREATE NEW ITEM FORM -->
+            <form class="slds-form--stacked">          
+                <lightning:input aura:id="itemform" label="Item Name"
+                                 name="itemname"
+                                 value="{!v.newItem.Name}"
+                                 required="true"
+                                 messageWhenValueMissing="Did you forget me?"/> 
+                <lightning:input type="number" aura:id="itemform" label="Quantity"
+                                 name="itemquantity"
+                                 min="1"
+                                 value="{!v.newItem.Quantity__c}"
+                                 messageWhenRangeUnderflow="Enter an quantity that's at least 1."/>
+                <lightning:input type="number" aura:id="itemform" label="Price"
+                                 name="itemprice"
+                                 min="0.01"
+                                 formatter="currency"
+                                 step="0.001"
+                                 value="{!v.newItem.Price__c}"
+                                 messageWhenRangeUnderflow="Enter an price that's at least $0.01."/>
+                <lightning:input type="checkbox" aura:id="itemform" label="Packed?"  
+                                 name="itempacked"
+                                 checked="{!v.newItem.Packed__c}"/>
+                <lightning:button label="Create Item" 
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.clickCreateItem}"/>
+            </form>
+            <!-- / CREATE NEW ITEM FORM -->
+</aura:component>

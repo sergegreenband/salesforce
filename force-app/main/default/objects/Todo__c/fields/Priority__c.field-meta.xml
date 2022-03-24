@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority__c</fullName>
+    <defaultValue>&quot;low&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Priority</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>low</fullName>
+                <default>false</default>
+                <label>low</label>
+            </value>
+            <value>
+                <fullName>medium</fullName>
+                <default>false</default>
+                <label>medium</label>
+            </value>
+            <value>
+                <fullName>high</fullName>
+                <default>false</default>
+                <label>high</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

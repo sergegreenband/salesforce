@@ -53,8 +53,7 @@ export default class TodoTile extends LightningElement {
       
    @wire(getAllSubTodos, {recordId: '$recordId'})
         loadSubTodos(result) {
-            //---------Status vars--------------------------------------//
-            
+//--------------------------Status vars--------------------------------------//  
             const fieldsDone = {};
             fieldsDone[TODO_ID_FIELD.fieldApiName] = this.recordId;
             fieldsDone[STATUS__C_FIELD.fieldApiName] = 'done';

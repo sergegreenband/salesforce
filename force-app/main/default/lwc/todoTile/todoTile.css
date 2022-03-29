@@ -10,12 +10,4 @@
   .todo-tile-body {
     background: linear-gradient(180deg, rgb(215, 240, 223) 80%, #85d9ee 100%);
   }
-  .todo-category-today {
-    background-color:chartreuse ;
-  }
-  .todo-category-tomorrow {
-    background-color:rgb(241, 229, 60) ;
-  }
-  .todo-category-later {
-    background-color:rgb(66, 107, 240) ;
-  }
+  

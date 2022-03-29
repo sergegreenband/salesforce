@@ -1,9 +1,65 @@
 <template>
-   
-                <div class="slds-p-vertical_xx-small">
-                    <p>{subtodo.Name}</p>
-                    <p>Status: {subtodo.Status__c}</p>
-                </div>
+    
+    <lightning-layout vertical-align="center">
+        <lightning-layout-item padding="around-small" class="slds-col slds-size_2-of-12">
+            <lightning-input
+                type="toggle"
+                label="Some toggle control"
+                variant="label-hidden"
+                message-toggle-active=""
+                message-toggle-inactive=""
+                class="slds-var-m-bottom_medium"
+                name = "status"
+                onchange={handleStatusChange}
+                checked={subtodo.Status__c}
+            ></lightning-input>        
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" class="slds-col slds-size_7-of-12">
+            <p>{subtodo.Name}</p>
+        </lightning-layout-item>
         
+        <lightning-layout-item padding="around-small" class="slds-col slds-size_3-of-12">
+                <lightning-button-icon slds-button slds-button_icon 
+                    icon-name="utility:edit"
+                    icon-class="todo-tile-button"
+                    variant="bare"
+                    alternative-text="Edit this to-do"
+                    onclick={handleShowModalSub}
+            ></lightning-button-icon>
+            <lightning-button-icon slds-button slds-button_icon 
+                icon-name="utility:delete"
+                variant="bare"
+                alternative-text="Delete this to-do"
+                onclick={handleDeleteSubTodo}
+                data-recordid={subtodo.Id}
+            ></lightning-button-icon>
+    
+</lightning-layout-item>
+<lightning-layout-item>
+    <div>
+        <c-modal header={header}>
+            <lightning-card>
+                <lightning-record-edit-form
+                object-api-name={objectApiName3}
+                record-id={subtodo.Id}
+                onsuccess={handleSuccessSub}>
+        <lightning-input-field field-name={subname}> </lightning-input-field>
+        <div class="slds-var-m-top_medium">
+        <lightning-button variant="brand" type="submit" label="Save">
+        </lightning-button>
+        </div>
+            </lightning-record-edit-form>   
+            </lightning-card>
+        <div slot="footer">
+        <lightning-button
+            label="OK"
+            variant="brand"
+            onclick={handleCancelModalSub}
+        ></lightning-button>
+         </div>
+    </c-modal>
+    </div>
+</lightning-layout-item>
+    </lightning-layout>
+   
 </template>
-

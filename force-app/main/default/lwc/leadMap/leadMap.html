@@ -1,0 +1,13 @@
+<template>
+    <template if:true={leads}>
+        <lightning-map
+                zoom-level="11"
+                map-markers={markers}
+                markers-title="Leads">
+        </lightning-map>
+    </template>
+    <template if:true={error}>
+            // Hint. In the actual course, I will implement something better than this
+            The following error was encountered: {error}
+    </template>
+</template>

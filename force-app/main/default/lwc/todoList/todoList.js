@@ -23,6 +23,8 @@ export default class TodoList extends NavigationMixin(LightningElement) {
   searchTerm = '';
   searchTermDesc = '';
   @track todos;
+  @track subtodos;
+  @track loadedsubtodos;
   @track error;
   @track wiredTodosResult;
   objectApiName = TODO__C_OBJECT;
@@ -39,6 +41,7 @@ export default class TodoList extends NavigationMixin(LightningElement) {
           this.todos = undefined;
       }
   }
+
   handleSuccess(event) {
     const toastEvent = new ShowToastEvent({
         title: "to-do record created",
@@ -48,16 +51,16 @@ export default class TodoList extends NavigationMixin(LightningElement) {
     this.dispatchEvent(toastEvent);  
 }
 
-@wire(MessageContext) messageContext;
-@wire(searchTodos, {searchTerm: '$searchTerm', searchTermDesc: '$searchTermDesc'})
-loadTodos(result) {
-this.todos = result;
-if (result.data) {
-  const message = {
-    todos: result.data
-  };
-  publish(this.messageContext, TODO_LIST_UPDATE_MESSAGE, message);
-}
+  @wire(MessageContext) messageContext;
+  @wire(searchTodos, {searchTerm: '$searchTerm', searchTermDesc: '$searchTermDesc'})
+  loadTodos(result) {
+  this.todos = result;
+  if (result.data) {
+    const message = {
+      todos: result.data
+    };
+    publish(this.messageContext, TODO_LIST_UPDATE_MESSAGE, message);
+  }
 }
 
 handleSearchTermChange(event) {
@@ -68,17 +71,11 @@ handleSearchTermChange(event) {
     this.searchTerm = searchTerm;
   }, 300);
 }
-  handleSearchTermChangeDesc(event) {
-  window.clearTimeout(this.delayTimeout);
-  const searchTermDesc = event.target.value;
-  // eslint-disable-next-line @lwc/lwc/no-async-operation
-  this.delayTimeout = setTimeout(() => {
-    this.searchTermDesc= searchTermDesc;
-  }, 300);
-}
+
 get hasResults() {
   return (this.todos.data.length > 0);
 }
+
 handleTodoView(event) {
   const todoId = event.detail;
   this[NavigationMixin.Navigate]({
@@ -118,16 +115,17 @@ handleTodoView(event) {
             );
         });
 }
-handleShowModal() {
-  const modal = this.template.querySelector('c-modal');
-  modal.show();
-}
+  
+        handleShowModal() {
+          const modal = this.template.querySelector('c-modal');
+          modal.show();
+        }
 
-handleCancelModal() {
-  const modal = this.template.querySelector('c-modal');
-  modal.hide();
-    return refreshApex(this.wiredTodosResult);
-}
+        handleCancelModal() {
+          const modal = this.template.querySelector('c-modal');
+          modal.hide();
+            return refreshApex(this.wiredTodosResult);
+        }
 
 /*----------------------------FILTERING-----------------------*/
     varCat = '';
